@@ -1,0 +1,112 @@
+                                                                                                                  Operators in Java
+
+Operators are special symbols used to perform operations on variables and values.
+
+1. Arithmetic Operators
+Used for mathematical calculations.
+
+Operator	Meaning	Example
+• +	Addition	a + b
+• -	Subtraction	a - b
+• *	Multiplication	a * b
+• /	Division	a / b
+• %	Modulus (remainder)	a % b
+
+Example:
+int a = 10, b = 3;
+System.out.println(a + b); // 13
+System.out.println(a % b); // 1
+
+2. Relational (Comparison) Operators
+Used to compare two values. Result is true or false.
+
+◉ Operator	Meaning
+• ==	Equal to
+• !=	Not equal
+• >	Greater than
+• <	Less than
+• >=	Greater than or equal
+• <=	Less than or equal
+
+Example:
+System.out.println(a > b);   // true
+System.out.println(a == b);  // false
+
+3. Logical Operators
+◉ Used to combine multiple conditions.
+
+perator	Meaning
+• &&	Logical AND
+• `	   `
+• !	  Logical NOT
+
+Example:
+int age = 20;
+System.out.println(age > 18 && age < 60); // true
+
+4. Assignment Operators
+Used to assign values to variables.
+◉ Operator	Example
+• =	a = 10
+• +=	a += 5
+• -=	a -= 5
+• *=	a *= 2
+• /=	a /= 2
+
+Example:
+int x = 10;
+x += 5; // x = 15
+
+5. Unary Operators
+◉ Operate on a single operand.
+Operator	Meaning
+• ++	Increment
+• --	Decrement
+• +	Unary plus
+• -	Unary minus
+• !	Logical NOT
+
+Example:
+int i = 5;
+System.out.println(++i); // 6
+System.out.println(i--); // 6
+
+6. Bitwise Operators
+Operate on bits.
+
+◉ Operator	Meaning
+• &	Bitwise AND
+• | Bitwise OR
+• `	`
+• ^	XOR
+• ~	Complement
+• <<	Left shift
+• >>	Right shift
+
+Example:
+int a = 5, b = 3;
+System.out.println(a & b); // 1
+
+7. Ternary Operator
+◉ Short form of if-else.
+
+Syntax:
+• condition ? value1 : value2;
+
+Example:
+int max = (a > b) ? a : b;
+
+8. instanceof Operator
+◉ Checks object type.
+
+Example:
+String s = "Java";
+System.out.println(s instanceof String); // true
+
+9. Special Operators
+• new → creates object
+• . → accesses members
+
+Example:
+Student s = new Student();
+s.display();
