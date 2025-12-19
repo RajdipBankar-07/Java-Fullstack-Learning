@@ -1,0 +1,77 @@
+                                                                                           Control Statements in Java
+
+Control statements determine the flow of execution of a Java program. They decide which statements execute, how many times they execute, or when execution jumps to another part of the program.
+ Java control statements are broadly classified into three categories:
+⓵ Selection (Decision-Making) Statements:-
+➊ if Statement
+↪︎ Executes a block of code when the condition is true.
+Example:-
+if (age >= 18) {
+    System.out.println("Eligible for voting");
+}
+☢︎ Features
+▪︎ Works with boolean expressions
+▪︎ Supports relational (> < == !=) and logical operators (&& || !)
+▪︎ Simple and lightweight
+▪︎ Can be nested
+
+➋ if-else Statement
+↪︎ Provides an alternative block if the condition is false.
+Example:-
+if (marks >= 40) {
+    System.out.println("Pass");
+} else {
+    System.out.println("Fail");
+}
+☢︎ Features
+▪︎ Ensures exactly one block executes
+▪︎ Supports all comparison operators
+▪︎ Prevents ambiguous execution
+
+➌ else-if Ladder
+↪︎ Used to check multiple conditions sequentially.
+Example:-
+if (marks >= 75) {
+    System.out.println("Distinction");
+} else if (marks >= 60) {
+    System.out.println("First Class");
+} else if (marks >= 40) {
+    System.out.println("Pass");
+} else {
+    System.out.println("Fail");
+}
+☢︎ Features
+▪︎ Conditions are evaluated top to bottom
+▪︎ First true condition executes
+▪︎ Remaining conditions are skipped
+▪︎ Optional final else
+
+➍ switch Statement
+↪︎ Selects execution based on a fixed value.
+Example:-
+int day = 2;
+
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+}
+☢︎ Features
+▪︎ Works with int, char, String, enum
+▪︎ Cleaner than long else-if ladders
+▪︎ Supports default case
+▪︎ Faster execution (internally optimized)
+
+✖︎ Comparative Summary Table
+| Statement | Best For         | Advantages     | Limitations         |
+| --------- | ---------------- | -------------- | ------------------- |
+| `if`      | Single condition | Simple, fast   | No alternative path |
+| `if-else` | Two outcomes     | Clear decision | Limited choices     |
+| `else-if` | Multiple ranges  | Logical flow   | Hard to maintain    |
+| `switch`  | Fixed values     | Clean, fast    | No range checking   |
+
