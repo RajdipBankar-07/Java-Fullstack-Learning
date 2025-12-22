@@ -1,0 +1,68 @@
+                                                                                                 𝓞𝓞𝓟 𝓒𝓸𝓷𝓬𝓮𝓹𝓽𝓼 𝓲𝓷 𝓙𝓪𝓿𝓪
+➣ OOP (Object-Oriented Programming) is a programming paradigm based on objects, which contain data (variables) and behavior (methods).
+➣ Java is a pure object-oriented language (except for primitive data types).
+
+ 1. Class and Object (Foundation of OOP in Java)
+
+🔸 Class
+↬ A class is a blueprint or template.
+↬ A class is a user-defined data type.
+
+➦ In simple terms:-
+↬ Class = Design
+
+Example:-
+class Student {
+    int id;           // instance variable
+    String name;      // instance variable
+
+    void display() {  // method
+        System.out.println(id + " " + name);
+    }
+}
+◉ Explanation
+· Student → class name
+· id, name → data members
+· display() → behavior
+
+
+🔸 Object
+↬ An object is an instance of a class.
+↬ An object is a real-world entity. 
+↬ It occupies memory at runtime..
+
+➦In simple terms:-
+↬ Object = Real implementation of that design
+
+Example
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.id = 101;
+        s1.name = "Rajdip";
+        s1.display();
+    }
+}
+◉ Breakdown
+· Student → class
+· s1 → reference variable
+· new Student() → object creation
+· s1.display() → method call
+
+➦ How Object Creation Works (Memory Concept)
+When this line executes:
+↬ Student s1 = new Student();
+
+❖ Internally:
+▸ JVM allocates heap memory for the object
+▸ Constructor initializes variables
+▸ Reference s1 stores object address
+▸ Object lives until garbage collected
+
+● Memory Areas Used
+| Area        | Purpose             |
+| ----------- | ------------------- |
+| Stack       | Reference variables |
+| Heap        | Objects             |
+| Method Area | Class structure     |
+
