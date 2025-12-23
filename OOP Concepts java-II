@@ -1,0 +1,82 @@
+                                                                                            𝓞𝓞𝓟 𝓒𝓸𝓷𝓬𝓮𝓹𝓽𝓼 𝓲𝓷 𝓙𝓪𝓿𝓪
+• Encapsulation in Java
+➣ Wrapping (binding) data (variables) and methods (functions) into a single unit, i.e., a class
+➣ Restricting direct access to data by using access modifiers and exposing controlled access through methods
+
+• In simple terms:
+➣ Encapsulation = Data Hiding + Controlled Access
+
+• How Encapsulation Is Achieved in Java
+⁃ Encapsulation is implemented using:
+⁃ Private data members
+⁃ Public getter and setter methods
+⁃ Access modifiers
+
+• Steps:
+▸ Declare variables as private
+▸ Provide public methods to access/update them
+
+• Advantages of Encapsulation 
+1. Data Security
+➥ Prevents unauthorized access
+➥ Protects sensitive data (passwords, balances)
+
+2. Controlled Access
+➥ Validation logic can be added
+➥ Only valid data enters the system
+
+3. Improved Maintainability
+➥ Internal implementation can change without affecting other classes
+➥ Reduces impact of changes
+
+4. Flexibility
+➥ Read-only or write-only access possible
+Example:
+⁍ Only get() → read-only
+⁍ Only set() → write-only
+
+5. Better Modularity
+➥ Each class manages its own data
+➥ Cleaner architecture
+// By using Getter and Setter
+Example:-
+class Employee{
+private int id;
+private String name;
+private double salary;
+
+public void setId(int id){
+if(id>0){
+this.id=id; }
+}
+
+public void setName(String name){
+this.name=name; }
+
+public void setSalary(double salary){
+this.salary=salary; }
+
+public int getId(){
+return id; }
+
+public String getName(){
+retuen name; }
+
+public double getSalary(){
+return salary ; }
+}
+
+// Second drive Class
+class  Drive{
+Public static void main (String [] args){
+Employee emp= new Employee();
+
+emp.setId(1);
+emp.setNAme("RAj");
+emp.setSalary(20346.8);
+
+System.out.println("ID = "+emp.getId());
+System.out.println("Name ="+emp.getName());
+System.out.println("Salary = "+emp.getSalary());
+}
+}
