@@ -1,0 +1,80 @@
+                                                                                                     super Keyword
+super Keyword (Parent Class Reference)
+Definition
+↬ super refers to the immediate parent class object.
+● It is used to access:
+➱ Parent class variables
+➱ Parent class methods
+➱ Parent class constructors
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1️⃣ Access Parent Class Variable
+class A {
+    int x = 10;   // Parent class variable
+}
+
+class B extends A {
+    int x = 20;   // Child class variable
+
+    void show() {
+        System.out.println("Value of x from parent class (super.x): " + super.x);
+        System.out.println("Value of x from child class (this.x): " + this.x);
+    }
+
+    public static void main(String[] args) {
+        B obj = new B();
+        obj.show();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2️⃣ Call Parent Class Method
+class Parent {
+    void display() {
+        System.out.println("Parent display");
+    }
+}
+
+class Child extends Parent {
+    void display() {
+        super.display();
+        System.out.println("Child display");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3️⃣ Call Parent Class Constructor
+class A {
+    A() {
+        System.out.println("Parent constructor");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class B extends A {
+    B() {
+        super();   // implicit if not written
+        System.out.println("Child constructor");
+    }
+
+    public static void main(String[] args) {
+        new B();
+    }
+}
+Output:
+Parent constructor
+Child constructor
+⚠ Rule:
+super() must be the first statement
+If not written, Java calls it automatically
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+★ this vs super
+| Feature          | this           | super         |
+| ---------------- | -------------- | ------------- |
+| Refers to        | Current object | Parent object |
+| Access variable  | Yes            | Yes           |
+| Call method      | Yes            | Yes           |
+| Call constructor | Yes            | Yes           |
+| Static allowed   | No             | No            |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+★★ Key Interview Points
+➢ this.x → refers to current class variable
+➢ super.x → refers to parent class variable
+➢ Used when same variable/method name exists in parent and child
+➢ Helps avoid ambiguity in inheritance
