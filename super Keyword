@@ -46,7 +46,7 @@ class A {
         System.out.println("Parent constructor");
     }
 }
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 class B extends A {
     B() {
         super();   // implicit if not written
@@ -57,6 +57,7 @@ class B extends A {
         new B();
     }
 }
+
 Output:
 Parent constructor
 Child constructor
