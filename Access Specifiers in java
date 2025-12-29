@@ -1,0 +1,63 @@
+                                                                                                           Access Specifiers
+◼️ Java provides four access specifiers:
+↬public
+↬protected
+↬default (no keyword)
+↬private
+
+1️⃣ public
+Accessible from anywhere.
+Can be used with classes, methods, variables, constructors.
+
+public class Student {
+    public int id;
+
+    public void show() {
+        System.out.println("Public method");
+    }
+}
+
+2️⃣ protected
+Accessible within the same package.
+Also accessible in subclasses of other packages.
+Commonly used with inheritance.
+
+class Parent {
+    protected int salary = 50000;
+}
+
+class Child extends Parent {
+    void display() {
+        System.out.println(salary);
+    }
+}
+
+3️⃣ default (Package-Private)
+No keyword is used.
+Accessible only within the same package.
+
+class College {
+    String name = "SKN College"; // default access
+}
+
+4️⃣ private
+Accessible only within the same class.
+Commonly used for data hiding.
+Accessed using getter and setter methods.
+
+class Employee {
+    private int empId;
+
+    public void setEmpId(int id) {
+        empId = id;
+    }
+
+    public int getEmpId() {
+        return empId;
+    }
+}
+
+➢ Use private for variables.
+➢ Use public for methods that provide controlled access.
+➢ protected is mainly used in inheritance.
+➢ Default access is package-level.
