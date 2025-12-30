@@ -1,0 +1,203 @@
+
+⊚ User-Defined Methods
+⇢ Created by the programmer.
+
+void show() {
+    System.out.println("User defined method");
+}
+----------------------------------------------------------------------------------------
+● Based on Class/Object Association
+A) Static Method
+⇝Declared using static
+⇝Belongs to the class
+⇝Can be called without object
+  class Demo {
+    static void display() {
+        System.out.println("Static method");
+    }
+
+    public static void main(String[] args) {
+        Demo.display();
+    }
+}
+★ Key Points
+⇝Cannot access non-static members directly
+⇝Memory allocated once
+
+B) Non-Static (Instance) Method
+⇝Belongs to the object
+⇝Object creation is required
+
+class Demo {
+    void show() {
+        System.out.println("Non-static method");
+    }
+
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        d.show();
+    }
+}
+----------------------------------------------------------------------------------------
+● Based on Parameters
+A) Non-Parameterized Method
+⇝ A method without parameters. It does not receive any data from the caller.
+
+class Demo {
+    void show() {
+        System.out.println("Non-parameterized method");
+    }
+
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        d.show();
+    }
+}
+
+B) Parameterized Method
+⇝ A method with parameters. It receives data from the caller.
+
+class Demo {
+    void add(int a, int b) {
+        System.out.println("Sum = " + (a + b));
+    }
+
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        d.add(10, 20);
+    }
+}  
+----------------------------------------------------------------------------------------  
+● Based on Return Type
+A) Void Method
+⇝Does not return any value
+⇝Used to perform actions
+  
+class Demo {
+    void printMessage() {
+        System.out.println("Void method");
+    }
+}
+
+B) Non-Void Method
+Returns a value
+Return type must be specified
+  
+class Demo {
+    int square(int x) {
+        return x * x;
+    }
+}
+
+----------------------------------------------------------------------------------------
+⊛ Combined Example (All Types in One Program)
+class Example {
+
+    // Static + Non-Parameterized + Void
+    static void welcome() {
+        System.out.println("Welcome to Java");
+    }
+
+    // Non-Static + Parameterized + Void
+    void showSum(int a, int b) {
+        System.out.println("Sum = " + (a + b));
+    }
+
+    // Static + Parameterized + Non-Void
+    static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // Non-Static + Non-Parameterized + Non-Void
+    int getNumber() {
+        return 50;
+    }
+
+    public static void main(String[] args) {
+
+        Example obj = new Example();
+
+        welcome();
+
+        obj.showSum(10, 20);
+
+        int result = multiply(5, 4);
+        System.out.println("Multiply = " + result);
+
+        int num = obj.getNumber();
+        System.out.println("Number = " + num);
+    }
+}
+----------------------------------------------------------------------------------------
+1. Abstract Method – Example
+★ Key Points
+⇝Declared using abstract
+⇝Has no method body
+⇝Must be implemented by the child class
+⇝Abstract methods exist only inside abstract classes
+// Abstract class
+abstract class Shape {
+
+    // Abstract method (no body)
+    abstract void draw();
+}
+
+// Child class
+class Circle extends Shape {
+
+    // Implementing abstract method
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+
+public class TestAbstract {
+    public static void main(String[] args) {
+        Shape s = new Circle();  // upcasting
+        s.draw();
+    }
+}
+
+Output
+Drawing Circle
+
+◉ Interview Line
+An abstract method forces child classes to provide implementation.
+----------------------------------------------------------------------------------------
+2. Final Method – Example
+★ Key Points
+⇝Declared using final
+⇝Cannot be overridden in child class
+⇝Used to restrict method modification
+class Parent {
+
+    final void show() {
+        System.out.println("This is a final method");
+    }
+}
+
+class Child extends Parent {
+
+    // ❌ This will cause compile-time error
+    /*
+    void show() {
+        System.out.println("Trying to override");
+    }
+    */
+}
+
+public class TestFinal {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.show();
+    }
+}
+Output
+This is a final method
+
+◉ Interview Line
+A final method cannot be overridden but can be inherited.
+
+
+
+  
