@@ -1,0 +1,157 @@
+                                                                                                   Constructor in Java
+A constructor in Java is a special member of a class that is automatically invoked when an object is created. 
+Its primary purpose is to initialize the object (i.e., assign initial values to instance variables).
+
+⦾ Key Characteristics
+↬Name must be the same as the class name
+↬No return type (not even void)
+↬Called automatically when an object is created using new
+↬Can be overloaded
+↬If no constructor is defined, Java provides a default constructor
+-----------------------------------------------------------------------------------------------------------------------------------------
+⓵ Default Constructor
+class Student {
+    int id;
+    String name;
+
+    Student() {
+        id = 1;
+        name = "Raj";
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student();
+        System.out.println(s.id);
+        System.out.println(s.name);
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+⓶ Parameterized Constructor
+class Student {
+    int id;
+    String name;
+
+    Student(int i, String n) {
+        id = i;
+        name = n;
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student(101, "Rajdip");
+        System.out.println(s.id);
+        System.out.println(s.name);
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+⓷ Constructor Overloading
+↬ Multiple constructors with different parameter lists.
+class Employee {
+    int empId;
+    String empName;
+
+    Employee() {
+        empId = 0;
+        empName = "Not Assigned";
+    }
+
+    Employee(int id, String name) {
+        empId = id;
+        empName = name;
+    }
+
+    public static void main(String[] args) {
+        Employee e1 = new Employee();
+        Employee e2 = new Employee(201, "Amit");
+
+        System.out.println(e1.empName);
+        System.out.println(e2.empName);
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+⦾ Constructor vs Method
+| Constructor          | Method              |
+| -------------------- | ------------------- |
+| Same name as class   | Any name            |
+| No return type       | Has return type     |
+| Called automatically | Called explicitly   |
+| Initializes object   | Performs operations |
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+◈ Important Rules
+➣ Constructors cannot be static
+➣ Constructors can be private (used in Singleton pattern)
+➣ Constructors can call another constructor using this()
+➣ Parent class constructor is called using super()
+
+Example: Constructor Chaining
+class A {
+    A() {
+        System.out.println("Parent constructor");
+    }
+}
+
+class B extends A {
+    B() {
+        super();
+        System.out.println("Child constructor");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+⓸ Multiple Constructors Example (Constructor Overloading)
+class Student {
+
+    int id;
+    String name;
+    int age;
+
+    // 1️⃣ Default constructor
+    Student() {
+        this(0, "Not Assigned", 0);   // calls parameterized constructor
+        System.out.println("Default constructor called");
+    }
+
+    // 2️⃣ Constructor with two parameters
+    Student(int id, String name) {
+        this(id, name, 18);          // calls 3-parameter constructor
+        System.out.println("Two-parameter constructor called");
+    }
+
+    // 3️⃣ Constructor with three parameters
+    Student(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        System.out.println("Three-parameter constructor called");
+    }
+
+    void display() {
+        System.out.println(id + " " + name + " " + age);
+    }
+
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+        s1.display();
+
+        System.out.println("---------------");
+
+        Student s2 = new Student(101, "Rajdip");
+        s2.display();
+
+        System.out.println("---------------");
+
+        Student s3 = new Student(102, "Amit", 22);
+        s3.display();
+    }
+}
+
+◈ Important Rules (Interview)
+➣ Multiple constructors are allowed in Java
+➣ Constructor name must match class name
+➣ this() cannot be used more than once
+➣ this() and super() cannot be used together in the same constructor
