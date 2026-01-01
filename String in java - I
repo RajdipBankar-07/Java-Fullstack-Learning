@@ -1,0 +1,80 @@
+                                                                                                        String
+1. What is a String in Java
+↬ A String represents immutable character data.
+↬ Immutable means: once a String object is created, its value cannot be changed.
+↬ Any modification creates a new String object in memory.
+⊚ Example:
+String s = "Hello";
+s = s + " World";   // creates a new String object
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Ways to Create a String
+2.1 Using String Literal (String Pool)
+➮ String s1 = "Java";
+➮ String s2 = "Java";
+⁃ Stored in String Constant Pool
+⁃ Memory efficient
+⁃ s1 and s2 refer to the same object
+
+2.2 Using new Keyword (Heap Memory)
+➮ String s3 = new String("Java");
+⁃ Creates a new object every time
+⁃ Stored in Heap
+⁃ Not memory efficient compared to literals
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. String Immutability (Very Important)
+➮ String s = "Hello";
+➮ s.concat(" World");
+➮ System.out.println(s);  // Output: Hello
+
+Reason:
+concat() creates a new String
+Original String remains unchanged
+
+Correct way:
+➮ s = s.concat(" World");
+➮ System.out.println(s);  // Output: Hello World
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+⊚ Java String Methods – Complete Example
+public class StringMethodsExample {
+    public static void main(String[] args) {
+
+        String s = "  Java Programming  ";
+
+        // 1. length()
+        System.out.println("Length: " + s.length());   //Length: 20
+
+        // 2. charAt(int)
+        System.out.println("Character at index 2: " + s.charAt(2)); //Character at index 2: J
+
+        // 3. toLowerCase()
+        System.out.println("Lowercase: " + s.toLowerCase());   //Lowercase:   java programming 
+
+        // 4. toUpperCase()
+        System.out.println("Uppercase: " + s.toUpperCase());   //Uppercase:   JAVA PROGRAMMING  
+
+        // 5. trim()
+        String trimmed = s.trim();
+        System.out.println("After trim: '" + trimmed + "'");  //After trim: 'Java Programming'
+
+        // 6. equals()
+        System.out.println("Equals 'Java Programming': " +
+                trimmed.equals("Java Programming"));   //Equals 'Java Programming': true
+
+        // 7. equalsIgnoreCase()
+        System.out.println("Equals Ignore Case 'java programming': " +
+                trimmed.equalsIgnoreCase("java programming"));  //Equals Ignore Case 'java programming': true
+
+        // 8. contains()
+        System.out.println("Contains 'Program': " +
+                trimmed.contains("Program"));  //Contains 'Program': true
+
+        // 9. substring()
+        System.out.println("Substring from index 5: " +
+                trimmed.substring(5));  //Substring from index 5: Programming
+
+        // 10. replace()
+        System.out.println("Replace Java with Python: " +
+                trimmed.replace("Java", "Python"));  //Replace Java with Python: Python Programming
+    }
+}
