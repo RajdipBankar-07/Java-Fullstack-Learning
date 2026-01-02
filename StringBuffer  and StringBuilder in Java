@@ -1,0 +1,73 @@
+❖ StringBuffer in Java
+Definition
+➥ StringBuffer is a mutable sequence of characters. It is thread-safe, meaning all its methods are synchronized.
+
+★ Key Characteristics
+➣ Mutable (content can change)
+➣ Thread-safe (synchronized)
+➣ Slower than StringBuilder due to synchronization
+➣ Available since Java 1.0
+
+Example
+class StringBufferExample {
+    public static void main(String[] args) {
+        StringBuffer sb = new StringBuffer("Java");
+
+        sb.append(" Programming");
+        System.out.println(sb);   // Java Programming
+
+        sb.insert(4, " Core");
+        System.out.println(sb);   // Java Core Programming
+
+        sb.replace(5, 9, "Advanced");
+        System.out.println(sb);   // Java Advanced Programming
+
+        sb.delete(5, 14);
+        System.out.println(sb);   // Java Programming
+
+        sb.reverse();
+        System.out.println(sb);   // gnimmargorP avaJ
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❖ StringBuilder in Java
+Definition
+➥ StringBuilder is also a mutable sequence of characters but not thread-safe.
+
+★ Key Characteristics
+➣ Mutable
+➣ Not thread-safe
+➣ Faster than StringBuffer
+➣ Introduced in Java 1.5
+
+Example
+class StringBuilderExample {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Hello");
+
+        sb.append(" World");
+        System.out.println(sb);   // Hello World
+
+        sb.insert(5, ",");
+        System.out.println(sb);   // Hello, World
+
+        sb.replace(0, 5, "Hi");
+        System.out.println(sb);   // Hi, World
+
+        sb.delete(2, 3);
+        System.out.println(sb);   // Hi World
+
+        sb.reverse();
+        System.out.println(sb);   // dlroW iH
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Difference Between String, StringBuffer, and StringBuilder
+| Feature       | String             | StringBuffer | StringBuilder |
+| ------------- | ------------------ | ------------ | ------------- |
+| Mutability    | Immutable          | Mutable      | Mutable       |
+| Thread Safety | Yes                | Yes          | No            |
+| Performance   | Slow (if modified) | Slower       | Fastest       |
+| Introduced In | Java 1.0           | Java 1.0     | Java 1.5      |
