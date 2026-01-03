@@ -1,0 +1,129 @@
+                                                                                                           SET
+
+Iterable
+   |
+Collection
+   |
+------------------------------------------------
+|                |               |             |
+List             Set            Queue         Deque
+
+❖ A Set is a Collection that does not allow duplicate elements.
+
+➤Key Characteristics
+↬No duplicates
+↬Allows at most one null element (except TreeSet)
+↬No index-based access
+↬Order depends on implementation
+
+◉ Types of Set in Java
+1.HashSet (Most Common)
+★ Features
+➣ Does not maintain insertion order
+➣ Allows one null
+➣ Fastest performance
+➣ Uses hashing mechanism
+
+Example 
+import java.util.HashSet;
+class HashSetExample{
+public static void main(String [] args){
+
+HashSet<String> set = new HashSet<>();
+set.add("RAM");
+set.add("SAM");
+set.remove("RAM");
+set.add("SAM");   // Duplicate - ignored
+set.add(null);     // Allowed
+set.add(null);     // Ignored
+
+System.out.println(set.contains("Java"));   // true or false return if present or not
+System.out.println(set.size()); //Number of Elements
+System.out.println(set.isEmpty());  //Check Set Is Empty or Not
+System.out.println(set);
+  }
+ }
+
+
+2.LinkedHashSet (Maintains Insertion Order)
+★ Features
+➣ Maintains insertion order
+➣ Slightly slower than HashSet
+➣ Allows one null
+
+Example
+import java.util.LinkedHashSet;
+public class LinkedHashSetExample {
+    public static void main(String[] args) {
+
+        LinkedHashSet<Integer> set = new LinkedHashSet<>();
+
+        set.add(10);
+        set.add(20);
+        set.add(30);
+        set.add(10); // Duplicate ignored
+
+        System.out.println(set);
+    }
+}
+
+
+3.TreeSet (Sorted Set)
+★ Features
+➣ Stores elements in sorted (ascending) order
+➣ Does not allow null
+➣ Slower than HashSet
+➣ Uses Red-Black Tree
+
+Example
+import java.util.TreeSet;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+
+        TreeSet<Integer> set = new TreeSet<>();
+
+        set.add(50);
+        set.add(10);
+        set.add(30);
+        set.add(20);
+
+        System.out.println(set);
+    }
+}
+
+Output
+[10, 20, 30, 50]
+
+❌ Null Example (Runtime Error)
+set.add(null); // NullPointerException
+
+Same Summary Table – Applies to ALL Sets
+| Method      | Purpose               |
+| ----------- | --------------------- |
+| add()       | Insert element        |
+| remove()    | Delete single element |
+| removeAll() | Delete multiple       |
+| removeIf()  | Conditional delete    |
+| clear()     | Delete all            |
+| contains()  | Check element         |
+| size()      | Count                 |
+| isEmpty()   | Empty check           |
+| retainAll() | Keep common elements  |
+| addAll()    | Merge sets            |
+
+HashSet vs LinkedHashSet vs TreeSet
+| Feature  | HashSet     | LinkedHashSet | TreeSet     |
+| -------- | ----------- | ------------- | ----------- |
+| Order    | No          | Insertion     | Sorted      |
+| Speed    | Fast        | Medium        | Slow        |
+| Null     | One         | One           | Not allowed |
+| Use Case | Fast lookup | Order needed  | Sorted data |
+
+IMP 
+Q1. Why duplicates are not allowed in Set?
+→ Uses equals() and hashCode() to ensure uniqueness.
+
+Q2. Why TreeSet does not allow null?
+→ Sorting requires comparison; null cannot be compared.
+--- The difference lies only in ordering, performance, and null handling.
