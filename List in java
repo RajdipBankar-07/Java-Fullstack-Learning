@@ -1,0 +1,129 @@
+                                                                                                        List
+➥ The List interface is part of the Java Collections Framework and represents an ordered collection (also called a sequence).
+
+Iterable
+   ↑
+Collection
+   ↑
+List
+   ↑
+------------------------------------
+|               |                 |
+ArrayList     LinkedList         Vector
+                                   ↑
+                                Stack
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Example
+import java.util.*;
+
+public class IntegerListExample {
+    public static void main(String[] args) {
+
+        // Step 1: Create List of Integer
+        List<Integer> numbers = new ArrayList<>();
+
+        // Step 2: Add elements
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+        numbers.add(20); // duplicate allowed
+
+        System.out.println("Numbers: " + numbers);
+
+        // Step 3: Access element using index
+        int first = numbers.get(0);
+        System.out.println("First element: " + first);
+
+        // Step 4: Update element
+        numbers.set(1, 25);
+        System.out.println("After update: " + numbers);
+
+        // Step 5: Insert element at index
+        numbers.add(2, 15);
+        System.out.println("After insert: " + numbers);
+
+        // Step 6: Remove element by index
+        numbers.remove(3);
+        System.out.println("After remove index 3: " + numbers);
+
+        // Step 7: Remove element by value
+        numbers.remove(Integer.valueOf(20));
+        System.out.println("After remove value 20: " + numbers);
+
+        // Step 8: Check element exists
+        System.out.println("Contains 30? " + numbers.contains(30));
+
+        // Step 9: Size of list
+        System.out.println("Size: " + numbers.size());
+
+        // Step 10: Iterate list
+        System.out.println("Iterating list:");
+        for (Integer n : numbers) {
+            System.out.println(n);
+        }
+
+        // Step 11: Clear list
+        numbers.clear();
+        System.out.println("After clear: " + numbers);
+    }
+}
+
+Output
+Numbers: [10, 20, 30, 20]
+First element: 10
+After update: [10, 25, 30, 20]
+After insert: [10, 25, 15, 30, 20]
+After remove index 3: [10, 25, 15, 20]
+After remove value 20: [10, 25, 15]
+Contains 30? false
+Size: 3
+Iterating list:
+10
+25
+15
+After clear: []
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+2.LinkedList Example (Same Methods)
+List<Integer> list = new LinkedList<>();
+list.add(10);
+list.add(20);
+list.add(30);
+
+◎ Extra Features of LinkedList
+➣ Fast insert/delete
+➣ Implements Deque (queue operations)
+➣ Slower access than ArrayList
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Vector and Stack (Legacy)
+i.Vector
+➣ Synchronized (thread-safe)
+➣ Slower than ArrayList
+
+ii.Stack
+Stack<Integer> stack = new Stack<>();
+stack.push(10);
+stack.push(20);
+System.out.println(stack.pop());
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+⊛ List vs Set (Important)
+| List                 | Set                              |
+| -------------------- | -------------------------------- |
+| Allows duplicates    | No duplicates                    |
+| Ordered              | Unordered (except LinkedHashSet) |
+| Index based          | No index                         |
+| get(), set() allowed | Not allowed                      |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⊛⊛ Interview One-Line Answer
+➱ The List interface is used when ordered, duplicate elements are required with index-based access, 
+and it is commonly implemented using ArrayList or LinkedList depending on performance needs.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⊛ Important Methods of List Interface
+| Class      | Order | Duplicate | Index | Thread-Safe |
+| ---------- | ----- | --------- | ----- | ----------- |
+| ArrayList  | Yes   | Yes       | Yes   | ❌           |
+| LinkedList | Yes   | Yes       | Yes   | ❌           |
+| Vector     | Yes   | Yes       | Yes   | ✔           |
+| Stack      | Yes   | Yes       | Yes   | ✔           |
