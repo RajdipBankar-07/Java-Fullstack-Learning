@@ -1,0 +1,137 @@
+                                                                                                  Queue
+➣ A Queue in Java follows the FIFO (First In, First Out) principle:
+➣ The element added first is removed first.
+
+Real-world analogy:
+➣ People standing in a line at a ticket counter.
+
+1. Queue Example (FIFO)
+Example using LinkedList
+import java.util.*;
+ class QueueExample{
+  Public static void main(String [] args){
+   Queue(String)  queue= new LinkedList<>();
+   queue.add=("Ram");
+   queue.add=("Lakhan");
+   queue.add=("Jay");
+  System.out.println(queue);  // print all present in queue
+  System.out.println(queue.peek()); // Ram (head element)
+   queue.poll(); // removes Ram
+  }
+}
+
+
+2.PriorityQueue Example (Priority-based)
+What is PriorityQueue?
+➣ Elements are ordered based on priority, not insertion order.
+➣ By default, it is min-heap (smallest element first).
+
+import java.util.*;
+
+class PriorityQueueExample {
+    public static void main(String[] args) {
+
+        Queue<Integer> pq = new PriorityQueue<>();
+
+        pq.add(40);
+        pq.add(10);
+        pq.add(30);
+        pq.add(20);
+
+        System.out.println(pq);      // Heap order
+        System.out.println(pq.poll()); // 10 (highest priority)
+
+        System.out.println(pq);      // Remaining elements
+    }
+}
+
+3.ArrayDeque
+ArrayDeque is faster than LinkedList and should be preferred in most cases.
+import java.util.*;
+
+public class QueueAllMethodsExample {
+
+    public static void main(String[] args) {
+
+        // Create Queue
+        Queue<Integer> q = new ArrayDeque<>();
+
+        // 1. add() - insert element
+        q.add(10);
+        q.add(20);
+
+        // 2. offer() - insert element (safe)
+        q.offer(30);
+        q.offer(40);
+
+        System.out.println("Queue after add & offer: " + q);
+
+        // 3. peek() - view head (safe)
+        System.out.println("peek(): " + q.peek());   // 10
+
+        // 4. element() - view head (exception if empty)
+        System.out.println("element(): " + q.element()); // 10
+
+        // 5. poll() - remove head (safe)
+        System.out.println("poll(): " + q.poll());   // 10
+        System.out.println("Queue after poll: " + q);
+
+        // 6. remove() - remove head (exception if empty)
+        System.out.println("remove(): " + q.remove()); // 20
+        System.out.println("Queue after remove: " + q);
+
+        // 7. contains()
+        System.out.println("contains 30? " + q.contains(30)); // true
+
+        // 8. size()
+        System.out.println("size(): " + q.size());
+
+        // 9. isEmpty()
+        System.out.println("isEmpty(): " + q.isEmpty());
+
+        // 10. Iterating Queue
+        System.out.println("Iterating elements:");
+        for (Integer x : q) {
+            System.out.println(x);
+        }
+
+        // 11. clear()
+        q.clear();
+        System.out.println("After clear(), isEmpty(): " + q.isEmpty());
+    }
+}
+
+Output (Expected)
+yaml
+Copy code
+Queue after add & offer: [10, 20, 30, 40]
+peek(): 10
+element(): 10
+poll(): 10
+Queue after poll: [20, 30, 40]
+remove(): 20
+Queue after remove: [30, 40]
+contains 30? true
+size(): 2
+isEmpty(): false
+Iterating elements:
+30
+40
+After clear(), isEmpty(): true
+
+
+Interview Tips
+➣ Prefer ArrayDeque over LinkedList
+➣ PriorityQueue does not allow null
+➣ Queue does not allow index access
+➣ poll() is safer than remove()
+
+Common Method
+| Method      | Description                                |
+| ----------- | ------------------------------------------ |
+| `add(e)`    | Inserts element (throws exception if full) |
+| `offer(e)`  | Inserts element (returns false if full)    |
+| `remove()`  | Removes head (exception if empty)          |
+| `poll()`    | Removes head (returns null if empty)       |
+| `element()` | Retrieves head (exception if empty)        |
+| `peek()`    | Retrieves head (returns null if empty)     |
