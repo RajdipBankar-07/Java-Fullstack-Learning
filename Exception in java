@@ -1,0 +1,117 @@
+                                                                                                            Exception
+◆ Exception Handling in Java
+Exception handling in Java is a mechanism to handle runtime errors (abnormal conditions) so that the normal flow of the program is maintained. It improves the robustness, reliability, and readability of applications.
+1. What is an Exception?
+An exception is an event that occurs during program execution and disrupts the normal flow of instructions.
+
+◉ Common Causes
+↬ Dividing by zero
+↬ Accessing an invalid array index
+↬ Null object access
+↬ File not found
+↬ Database or network failures
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Types of Exceptions in Java
+A. Checked Exceptions (Compile-Time)
+➣ Checked at compile time
+➣ Must be handled using try-catch or throws
+
+Examples:
+IOException
+SQLException
+FileNotFoundException
+FileReader fr = new FileReader("data.txt"); // Compile-time error if not handled
+
+B. Unchecked Exceptions (Runtime)
+Occur at runtime
+Subclasses of RuntimeException
+
+Examples:
+ArithmeticException
+NullPointerException
+ArrayIndexOutOfBoundsException
+int a = 10 / 0; // ArithmeticException
+
+C. Errors
+Serious problems beyond application control
+Should not be handled in normal programs
+
+Examples:
+OutOfMemoryError
+StackOverflowError
+
+Exception Handling Keywords
+| Keyword   | Purpose                       |
+| --------- | ----------------------------- |
+| `try`     | Encloses risky code           |
+| `catch`   | Handles the exception         |
+| `finally` | Executes always               |
+| `throw`   | Explicitly throw an exception |
+| `throws`  | Declare exceptions            |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.try–catch Block
+public class Demo {
+    public static void main(String[] args) {
+        try {
+            int a = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero");
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Multiple catch Blocks
+try {
+    int arr[] = new int[5];
+    arr[10] = 50;
+} catch (ArithmeticException e) {
+    System.out.println("Arithmetic Error");
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Array Index Error");
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+3.finally Block
+➣ Executes whether exception occurs or not
+Used to close resources
+try {
+    int x = 10 / 2;
+} catch (Exception e) {
+    System.out.println("Error");
+} finally {
+    System.out.println("Always executed");
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+4.throw Keyword
+➣ Used to explicitly throw an exception
+class Test {
+    static void validate(int age) {
+        if (age < 18)
+            throw new ArithmeticException("Not eligible");
+        else
+            System.out.println("Eligible");
+    }
+
+    public static void main(String[] args) {
+        validate(16);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. throws Keyword
+➣ Used to declare exceptions that a method may pass to the caller
+class Test {
+    static void readFile() throws IOException {
+        FileReader fr = new FileReader("abc.txt");
+    }
+
+    public static void main(String[] args) throws IOException {
+        readFile();
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+◉ Best Practices
+➣ Catch specific exceptions, not Exception
+➣ Do not ignore exceptions
+➣ Use finally or try-with-resources for cleanup
+➣ Create custom exceptions for business logic
+➣ Do not use exceptions for normal flow contro
