@@ -1,0 +1,61 @@
+                                                                                                           Multithreading
+⇝ Multithreading in Java allows multiple parts of a program (threads) to execute concurrently, improving performance, responsiveness, and efficient CPU utilization. 
+⇝ It is fundamental for building scalable back-end systems, GUI applications, and high-performance services.
+
+➥ A thread is a lightweight sub-process and the smallest unit of execution within a Java program.
+➥ One process can have multiple threads
+➥ Threads share the same memory
+➥ Executed independently by the JVM scheduler
+
+⊙ Advantages of Multithreading
+➣ Better CPU utilization
+➣ Faster program execution
+➣ Improved application responsiveness
+➣ Efficient handling of multiple tasks (e.g., web requests)
+
+
+A] Ways to Create Threads in Java
+Method 1: Extending Thread Class
+ class Demo extends Thread{
+ 
+public void run(){
+ System.out.println("Create thread and run ");
+  }
+
+public static void main(Strings [] args){
+  Demo d=new Demo();
+  d.start();  // starts a new thread
+  }
+}
+
+⊙ Important:
+➣ start() creates a new thread
+➣ run() contains the task logic
+➣ Do not call run() directly
+
+Method 2: Implementing Runnable Interface (Recommended)
+ class Demo implements Runnable{
+
+ public void run(){
+ System.out.println("This is Thread Supports multiple inheritance ");
+  }
+
+ public static void main(String [] args ){
+  Thread t = new Thread(new Demo());
+   t.start();
+   }
+}
+
+⊙ Why preferred?
+➣ Supports multiple inheritance
+➣ Better separation of task and thread
+
+⊙ Common Thread Methods
+| Method          | Purpose                 |
+| --------------- | ----------------------- |
+| `start()`       | Starts thread           |
+| `run()`         | Thread task             |
+| `sleep(ms)`     | Pause execution         |
+| `join()`        | Wait for another thread |
+| `getName()`     | Get thread name         |
+| `setPriority()` | Set priority (1–10)     |
