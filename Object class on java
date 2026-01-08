@@ -1,0 +1,47 @@
+                                                                                                     Object class
+In Java, the Object class is the root (superclass) of all classes. Every class you create—directly or indirectly—extends java.lang.Object. Because of this, all Java objects inherit its methods.
+
+Provides common behavior to all Java objects
+Enables polymorphism (reference of type Object)
+Forms the base for collections, reflection, threading, and serialization
+Methods like equals(), hashCode(), and toString() are heavily used in real projects
+Example:-
+
+class Student {
+}
+
+Internally becomes:
+class Student extends Object {   // indirectly—extends
+}
+
+1] equals() Method
+Purpose
+Compares object content, not reference.
+
+Default Behavior
+obj1 == obj2
+
+Example
+class Student {
+    int id;
+
+    Student(int id) {
+        this.id = id;
+    }
+
+    public boolean equals(Object o) {
+        Student s = (Student) o;
+        return this.id == s.id;
+    }
+
+    public static void main(String[] args) {
+        Student s1 = new Student(10);
+        Student s2 = new Student(10);
+
+        System.out.println(s1.equals(s2)); // true
+    }
+}
+
+Interview Point
+Always override equals() with hashCode()
+Used by collections like HashSet, HashMap
