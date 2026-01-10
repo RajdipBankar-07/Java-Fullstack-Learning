@@ -1,0 +1,38 @@
+                                                                                                      clone
+➣ In Java, object cloning means creating a new object with the same state (data) as an existing object. 
+➣ This is primarily supported through the clone() method defined in the Object class.
+
+◍ Simple Example:-
+class Solution implements Cloneable{
+    int id;
+
+    @Override
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone(); // shallow copy
+    }
+
+    public static void main(String [] args) throws CloneNotSupportedException{
+        Solution s= new Solution();
+        s.id=21;
+        Solution s2 =(Solution) s.clone();
+        System.out.println(s.id);
+        System.out.println(s2.id);
+
+    }
+}
+Output:
+21
+21
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⊚ System.out.println(s == s2);  /// false 
+➣ s → original object
+➣ s2 → cloned (copied) object
+➣ Both have same data, but they are different objects
+
+⁍ Important Rules and Notes
+↠ Cloneable is a marker interface (no methods).
+↠ clone() does not call constructors.
+↠ final fields cannot be reassigned during cloning.
+↠ Arrays support cloning automatically.
