@@ -1,0 +1,72 @@
+                                                                                              hashcode
+↬ The hashCode() method returns an integer value that represents the hash code of an object.
+↬ It is primarily used by hash-based collections such as:
+  • HashMap
+  • HashSet
+  • Hashtable
+
+Default Implementation (Object Class)
+⇨ Uses memory address–based hashing (JVM-dependent).
+⇨ Two different objects usually have different hash codes.
+
+Example:-
+Class Solution{
+  int id ;
+String jay;
+  }
+
+public Class Test{
+ public static void main(String [] args ){
+   Solution s= new Solution();
+   Solution s1=new Solution();
+System.out.println(s.hashcode());
+System.out.println(s1.hashcode());
+  }
+}
+
+output;-
+121233123
+125345876
+
+➣➣ Different integers (because objects are different in memory).
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                                                getClass
+
+➣ The getClass() method returns the runtime class information of an object.
+➣ It belongs to Object
+➣ It is final (cannot be overridden)
+➣ Used heavily in reflection
+
+Example:-
+
+class Student {
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Student s = new Student();
+        System.out.println(s.getClass());
+    }
+}
+
+output:-
+class Student
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Example: Runtime Polymorphism
+class Animal { }
+class Dog extends Animal { }
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        System.out.println(a.getClass().getName());
+    }
+}
+
+Output
+Dog
+
+
