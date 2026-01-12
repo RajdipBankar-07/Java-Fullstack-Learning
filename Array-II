@@ -1,0 +1,95 @@
+                                                                                                                     Two-Dimensional Array in java 
+➥ A two-dimensional (2D) array in Java is an array of arrays.
+➥ It is mainly used to represent tabular data such as rows and columns, for example:
+• Matrix
+• Table
+• Grid
+Marks of students (rows = students, columns = subjects)
+
+★ Syntax
+dataType[][] arrayName;
+ Example
+int[][] arr;
+  Alternative (less common but valid):
+int arr[][];
+
+★ Syntax
+arrayName = new dataType[rows][columns];
+
+Example
+int[][] arr = new int[3][3];
+int[][] arr = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public class Test {
+    public static void main(String[] args) {
+
+int[][] arr = new int[3][4];
+
+arr[0][0] = 10;
+arr[0][1] = 20;
+arr[0][2] = 30;
+arr[0][3] = 88;
+
+arr[1][0] = 40;
+arr[1][1] = 50;
+arr[1][2] = 60;
+arr[1][3] = 70;
+
+System.out.println(arr[0][1]);
+
+for(int i = 0; i < arr.length; i++) {          // rows
+    for(int j = 0; j < arr[i].length; j++) {   // columns
+        System.out.print(arr[i][j] + " ");
+    }
+    System.out.println();
+}
+
+System.out.println(arr.length);      
+System.out.println(arr[0].length);      
+
+    }
+}
+
+output:-
+20
+10 20 30 88 
+40 50 60 70
+0 0 0 0
+3
+4
+
+★★ Summary 
+➣ 2D array = array of arrays
+➣ Index starts from 0
+➣ Fixed size
+➣ Supports jagged arrays
+➣ Uses nested loops
+➣ Stored in heap memory
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+◎ A jagged array means:
+➣ Rows are fixed, but each row can have a different number of columns
+Example:-
+marks[0][0] = 10;
+marks[0][1] = 20;
+
+marks[1][0] = 30;
+marks[1][1] = 40;
+marks[1][2] = 50;
+
+marks[2][0] = 60;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+int[][] a = {
+    {1, 2},
+    {3, 4, 5},
+    {6}
+};
