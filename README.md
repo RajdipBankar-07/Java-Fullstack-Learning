@@ -16,12 +16,6 @@
 - File Handling
 - Multithreading
 
-### Advanced Java
-- JDBC
-- Servlets
-- JSP
-- MVC Architecture
-
 ## Author
 **Rajdip Bankar**  
 CSE Student | Java Full Stack Developer (Aspirant)
